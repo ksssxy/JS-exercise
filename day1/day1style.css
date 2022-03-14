@@ -1,0 +1,73 @@
+/*引入字体*/
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/*响应式布局：确保元素的总宽度和高度中包括内边距（填充）和边框*/
+*{
+    box-sizing: border-box;
+}
+
+/*响应式单位-高vh-宽vw*/
+body {
+    /*使内部块元素居中*/
+    display: flex;
+    /*使内部块元素顺应内容或设置的大小*/
+    align-items: center;
+    justify-content: center;
+    /*要设置外部元素高度才能使内部块元素居中*/
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.container{
+    display:flex;
+    width: 90vw;
+}
+
+.tu{
+    /*背景图片格式*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height:80vh;
+    border-radius: 50px;
+    margin:10px;
+    position:relative;
+    /*设置光标状态*/
+    cursor: pointer;
+    /*设置布局*/
+    flex: 0.5;
+    /*ease-in	规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）*/
+    /*-webkit-transition 浏览器支持：Safari和Chrome*/
+    -webkit-transition: all 700ms ease-in;
+}
+
+.tu p {
+    font-family: 'Muli', sans-serif;
+    color: #fff;
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    /*使文字先不显现*/
+    opacity: 0;
+    font-weight: bold;
+}
+
+.tu.active{
+    flex:5;
+}
+
+.tu.active p{
+    opacity: 1;
+    /*transition: property duration timing-function delay;*/
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+/*当视口宽度小于480px时执行此操作*/
+@media (max-width: 480px) {
+    .container {
+      width: 100vw;
+    }
+}
